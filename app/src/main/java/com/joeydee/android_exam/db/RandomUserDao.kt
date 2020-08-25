@@ -15,4 +15,7 @@ interface RandomUserDao {
     @Query("SELECT * FROM user_table")
     fun getAll(): List<UserResult>
 
+    @Query("SELECT * FROM user_table WHERE primaryKey = :id")
+    suspend fun getPerson(id: String): UserResult
+
 }

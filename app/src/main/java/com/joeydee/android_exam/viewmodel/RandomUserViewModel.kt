@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 class RandomUserViewModel(application: Application) : AndroidViewModel(application){
     var repo :RandomUserRepository
     var data: MutableLiveData<List<UserResult?>> = MutableLiveData()
-
+    var person : MutableLiveData<UserResult> = MutableLiveData()
     init {
         val db = RandomUserDb
             .getInstance(application)
@@ -29,5 +29,13 @@ class RandomUserViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
+
+    fun getPerson(id : String){
+        viewModelScope.launch(Dispatchers.IO) {
+            repo.getPerson(id).let {
+                person.postValue(it)
+            }
+        }
+    }
 
 }

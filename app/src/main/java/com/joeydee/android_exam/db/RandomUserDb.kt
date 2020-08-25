@@ -8,7 +8,7 @@ import androidx.room.TypeConverters
 import com.joeydee.android_exam.objects.UserResult
 import com.joeydee.android_exam.utils.Converters
 
-@Database(entities = [UserResult::class], version = 1)
+@Database(entities = [UserResult::class], version = 1,exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class RandomUserDb : RoomDatabase() {
 

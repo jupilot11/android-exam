@@ -3,11 +3,12 @@ package com.joeydee.android_exam.objects
 import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "user_table")
 class UserResult(
-    @NonNull @PrimaryKey(autoGenerate = true)
-    var primaryKey: Int? = null
+    @NonNull @PrimaryKey
+    var primaryKey: String = UUID.randomUUID().toString()
 ) {
     var cell: String? = null
     var email: String? = null

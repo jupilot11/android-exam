@@ -45,4 +45,8 @@ class RandomUserRepository(var db: RandomUserDb, var dataSource: RandomUserDataS
         return db.randomUserDao.getAll()
     }
 
+    suspend fun getPerson(id: String): UserResult {
+        return db.randomUserDao.getPerson(id)
+    }
+
 }
